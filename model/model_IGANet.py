@@ -130,7 +130,6 @@ class Block(nn.Module): # drop=0.1
         self.GCN_Block2 = GCN(dim, dim, adj)
 
         self.adj = adj
-        
         self.drop_path = DropPath(drop_path) if drop_path > 0. else nn.Identity()
 
         # attention

@@ -1,4 +1,5 @@
 import os
+import glob
 import torch
 import random
 import logging
@@ -143,9 +144,9 @@ if __name__ == '__main__':
 
     if args.reload:
         model_dict = model['IGANet'].state_dict()
-        # model_path = sorted(glob.glob(os.path.join(opt.previous_dir, '*.pth')))[0]
-        # model_path = os.path.join("./checkpoint",args.model_dir)
-        model_path = "./data/0927_0059_44/Model_8_4834.pth"
+        # model_path = sorted(glob.glob(os.path.join(args.previous_dir, '*.pth')))[0]
+        model_path = glob.glob(os.path.join(args.previous_dir, '*.pth'))
+        # model_path = "./pre_trained_model/IGANet_8_4834.pth"
         print(model_path)
         pre_dict = torch.load(model_path)
         for name, key in model_dict.items():

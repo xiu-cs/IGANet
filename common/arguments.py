@@ -4,7 +4,7 @@ import math
 class opts():
     def __init__(self):
         self.parser = argparse.ArgumentParser()
-
+        
     def init(self):
         self.parser.add_argument('--model', default='', type=str)
         self.parser.add_argument('--layers', default=3, type=int)
@@ -23,7 +23,7 @@ class opts():
         self.parser.add_argument('-s', '--stride', default=1, type=int)
         self.parser.add_argument('--gpu', default='0', type=str, help='')
         self.parser.add_argument('--train', action='store_true')
-        self.parser.add_argument('--test', type=int, default=1)
+        self.parser.add_argument('--test', action='store_true')
         self.parser.add_argument('--nepoch', type=int, default=41) # 
         self.parser.add_argument('--batch_size', type=int, default=128, help='can be changed depending on your machine') # default 128
         self.parser.add_argument('--lr', type=float, default=1e-3)
@@ -38,7 +38,7 @@ class opts():
 
         self.parser.add_argument('--post_refine_reload', action='store_true')
         self.parser.add_argument('--checkpoint', type=str, default='')
-        self.parser.add_argument('--previous_dir', type=str, default='checkpoint/pretrained')
+        self.parser.add_argument('--previous_dir', type=str, default='./pre_trained_model/pretrained')
         self.parser.add_argument('--n_joints', type=int, default=17)
         self.parser.add_argument('--out_joints', type=int, default=17)
         self.parser.add_argument('--out_all', type=int, default=1)

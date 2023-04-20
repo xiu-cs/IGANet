@@ -1,12 +1,32 @@
-# IGANet:Interweaved Graph and Attention Network for 3D Human Pose Estimation 
+# Interweaved Graph and Attention Network for 3D Human Pose Estimation 
 
 <p align="center"><img src="images/teaser.png" width="50%" alt="" /></p>
 
 > This paper has been accepted by IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2023.
 
 
-The code will be released soon.
+## Results on Human3.6M
+Here, we compare our IGANet with recent state-of-the-art methods on Human3.6M dataset. The 2D pose detected by cascaded pyramid network (CPN) is used as input.
+We use $\S$ to highlight methods that use additional refinement module.
+Evaluation metric is Mean Per Joint Position Error (MPJPE) in mm​.
 
+|   Models    |  MPJPE   |
+| :---------: | :------: |
+| GraFormer   |  51.8 mm  |
+| MGCN $\S$      |  49.4 mm  |
+|  IGANet     | **48.3** mm |
+
+
+## Dependencies
+
+- Cudatoolkit: 10.2
+- Python: 3.7.11
+- Pytorch: 1.10.0 
+
+Create conda environment:
+```bash
+conda env create -f environment.yml
+```
 
 ## Dataset setup
 
@@ -24,19 +44,26 @@ ${POSE_ROOT}/
 |   |-- data_2d_h36m_cpn_ft_h36m_dbb.npz
 ```
 
-
 ## Test the pre-trained model
+Pre-trained model can be found [here](). please download it and put id in the './pre_trained_model' dictory.
 
 
+To Test the pre-trained model on Human3.6M:
+```bash
+python main.py --test --reload --previous_dir "./pre_trained_model" --model model_IGANet --layers 3 --nepoch 20 --gpu 0
+```
 
 ## Train the model from scratch
 
 For Human3.6M:
 
 ```bash
-python main.py --layers 3 --gpu 0
+python main.py --train --model model_IGANet --layers 3 --nepoch 20 --gpu 0
 ```
 
+## Demo
+
+The visualization code will be released soon.
 
 ## Acknowledgement
 
