@@ -181,7 +181,7 @@ def print_error_action(action_error_sum, is_train):
             print("{0:>6.2f} {1:>10.2f}".format(mean_error_each['p1'], mean_error_each['p2']))
 
     if is_train == 0:
-        print("{0:<12} {1:>6.2f} {2:>10.2f}".format("Average", mean_error_all['p1'].avg, \
+        print("{0:<12} {1:>6.4f} {2:>10.4f}".format("Average", mean_error_all['p1'].avg, \
                 mean_error_all['p2'].avg))
     
     return mean_error_all['p1'].avg, mean_error_all['p2'].avg

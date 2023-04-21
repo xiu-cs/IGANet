@@ -45,21 +45,25 @@ ${POSE_ROOT}/
 ```
 
 ## Test the pre-trained model
-Pre-trained model can be found [here](). please download it and put id in the './pre_trained_model' dictory.
+Pre-trained model can be found [here](). please download it and put it in the './pre_trained_model' dictory.
 
 
 To Test the pre-trained model on Human3.6M:
 ```bash
-python main.py --test --reload --previous_dir "./pre_trained_model" --model model_IGANet --layers 3 --nepoch 20 --gpu 0
+python main.py --reload --previous_dir "./pre_trained_model" --model model_IGANet --layers 3 --gpu 0
 ```
 
 ## Train the model from scratch
+
+The log file, pre-trained model, and other files of each training time will be saved in the './checkpoint' folder.
 
 For Human3.6M:
 
 ```bash
 python main.py --train --model model_IGANet --layers 3 --nepoch 20 --gpu 0
 ```
+
+
 
 ## Demo
 

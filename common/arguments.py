@@ -23,7 +23,8 @@ class opts():
         self.parser.add_argument('-s', '--stride', default=1, type=int)
         self.parser.add_argument('--gpu', default='0', type=str, help='')
         self.parser.add_argument('--train', action='store_true')
-        self.parser.add_argument('--test', action='store_true')
+        # self.parser.add_argument('--test', action='store_true')
+        self.parser.add_argument('--test', type=int, default=1) # 
         self.parser.add_argument('--nepoch', type=int, default=41) # 
         self.parser.add_argument('--batch_size', type=int, default=128, help='can be changed depending on your machine') # default 128
         self.parser.add_argument('--lr', type=float, default=1e-3)

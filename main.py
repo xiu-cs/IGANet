@@ -145,8 +145,8 @@ if __name__ == '__main__':
     if args.reload:
         model_dict = model['IGANet'].state_dict()
         # model_path = sorted(glob.glob(os.path.join(args.previous_dir, '*.pth')))[0]
-        model_path = glob.glob(os.path.join(args.previous_dir, '*.pth'))
-        # model_path = "./pre_trained_model/IGANet_8_4834.pth"
+        model_path = glob.glob(os.path.join(args.previous_dir, '*.pth'))[0]
+        model_path = "./pre_trained_model/IGANet_8_4834.pth"
         print(model_path)
         pre_dict = torch.load(model_path)
         for name, key in model_dict.items():
@@ -169,23 +169,21 @@ if __name__ == '__main__':
 
         if args.train:
             loss = train(args, actions, train_dataloader, model, optimizer, epoch)
+        p1, p2 = val(args, actions, test_dataloader, model)
         
-        if args.test:
-            p1, p2 = val(args, actions, test_dataloader, model)
-
+        if args.train:
             data_threshold = p1
             if args.train and data_threshold < args.previous_best_threshold: 
-                args.previous_name = save_model(args.previous_name, args.checkpoint, epoch, data_threshold, model['IGANet'], "IGANet") #取消模型保存
-
+                args.previous_name = save_model(args.previous_name, args.checkpoint, epoch, data_threshold, model['IGANet'], "IGANet") 
                 args.previous_best_threshold = data_threshold
                 best_epoch = epoch
-            if args.train == 0:
-                print('p1: %.2f, p2: %.2f' % (p1, p2))
-                logging.info('p1: %.2f, p2: %.2f' % (p1, p2))
-                break
-            else:
-                print('e: %d, lr: %.7f, loss: %.4f, p1: %.2f, p2: %.2f' % (epoch, lr, loss, p1, p2))
-                logging.info('epoch: %d, lr: %.7f, loss: %.4f, p1: %.2f, p2: %.2f' % (epoch, lr, loss, p1, p2))
+                
+            print('e: %d, lr: %.7f, loss: %.4f, p1: %.2f, p2: %.2f' % (epoch, lr, loss, p1, p2))
+            logging.info('epoch: %d, lr: %.7f, loss: %.4f, p1: %.2f, p2: %.2f' % (epoch, lr, loss, p1, p2))
+        else:        
+            print('p1: %.4f, p2: %.4f' % (p1, p2))
+            logging.info('p1: %.4f, p2: %.4f' % (p1, p2))
+            break
                 
         # if epoch % opt.large_decay_epoch == 0: 
         #     for param_group in optimizer.param_groups:
