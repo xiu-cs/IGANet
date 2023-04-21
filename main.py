@@ -146,7 +146,7 @@ if __name__ == '__main__':
         model_dict = model['IGANet'].state_dict()
         # model_path = sorted(glob.glob(os.path.join(args.previous_dir, '*.pth')))[0]
         model_path = glob.glob(os.path.join(args.previous_dir, '*.pth'))[0]
-        model_path = "./pre_trained_model/IGANet_8_4834.pth"
+        # model_path = "./pre_trained_model/IGANet_8_4834.pth"
         print(model_path)
         pre_dict = torch.load(model_path)
         for name, key in model_dict.items():

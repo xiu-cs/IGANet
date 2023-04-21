@@ -45,7 +45,7 @@ ${POSE_ROOT}/
 ```
 
 ## Test the pre-trained model
-Pre-trained model can be found [here](). please download it and put it in the './pre_trained_model' dictory.
+The pre-trained model can be found [here](https://drive.google.com/drive/folders/1NL7LM9aVzA05aSYCH9rsNshXO4vwcjp1?usp=sharing). please download it and put it in the './pre_trained_model' dictory.
 
 
 To Test the pre-trained model on Human3.6M:
@@ -74,6 +74,12 @@ The visualization code will be released soon.
 Our code is extended from the following repositories. We thank the authors for releasing the codes. 
 
 - [MHFormer](https://github.com/Vegetebird/MHFormer)
-- [VideoPose3D](https://github.com/facebookresearch/VideoPose3D)
 - [StridedTransformer-Pose3D](https://github.com/Vegetebird/StridedTransformer-Pose3D)
+- [ST-GCN](https://github.com/vanoracai/Exploiting-Spatial-temporal-Relationships-for-3D-Pose-Estimation-via-Graph-Convolutional-Networks)
+- [VideoPose3D](https://github.com/facebookresearch/VideoPose3D)
 
+
+
+## Licence
+
+This project is licensed under the terms of the MIT license.
