@@ -60,7 +60,6 @@ def step(split, args, actions, dataLoader, model, optimizer=None, epoch=None):
             loss.backward()
             optimizer.step()
 
-
         elif split == 'test':
             output_3D = output_3D[:, args.pad].unsqueeze(1) 
             output_3D[:, :, 0, :] = 0
@@ -103,7 +102,7 @@ if __name__ == '__main__':
         if not os.path.exists(args.checkpoint):
             os.makedirs(args.checkpoint)
 
-        # backup file
+        # backup files
         import shutil
         file_name = os.path.basename(__file__)
         shutil.copyfile(src=file_name, dst = os.path.join( args.checkpoint, args.create_time + "_" + file_name))
@@ -166,7 +165,6 @@ if __name__ == '__main__':
     best_epoch = 0
     
     for epoch in range(1, args.nepoch):
-
         if args.train:
             loss = train(args, actions, train_dataloader, model, optimizer, epoch)
         p1, p2 = val(args, actions, test_dataloader, model)
