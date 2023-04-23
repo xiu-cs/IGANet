@@ -176,8 +176,8 @@ if __name__ == '__main__':
                 args.previous_best_threshold = data_threshold
                 best_epoch = epoch
                 
-            print('e: %d, lr: %.7f, loss: %.4f, p1: %.2f, p2: %.2f' % (epoch, lr, loss, p1, p2))
-            logging.info('epoch: %d, lr: %.7f, loss: %.4f, p1: %.2f, p2: %.2f' % (epoch, lr, loss, p1, p2))
+            print('e: %d, lr: %.7f, loss: %.4f, p1: %.4f, p2: %.4f' % (epoch, lr, loss, p1, p2))
+            logging.info('epoch: %d, lr: %.7f, loss: %.4f, p1: %.4f, p2: %.4f' % (epoch, lr, loss, p1, p2))
         else:        
             print('p1: %.4f, p2: %.4f' % (p1, p2))
             logging.info('p1: %.4f, p2: %.4f' % (p1, p2))
