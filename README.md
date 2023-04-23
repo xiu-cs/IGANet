@@ -33,7 +33,7 @@ conda env create -f environment.yml
 ### Setup from original source 
 You can obtain the Human3.6M dataset from the [Human3.6M](http://vision.imar.ro/human3.6m/) website, and then set it up using the instructions provided in [VideoPose3D](https://github.com/facebookresearch/VideoPose3D). 
 
-### Setup from preprocessed dataset
+### Setup from preprocessed dataset (Recommended)
  You also can access the processed data by downloading it from [here](https://drive.google.com/drive/folders/112GPdRC9IEcwcJRyrLJeYw9_YV4wLdKC?usp=sharing).
 
 ```bash
