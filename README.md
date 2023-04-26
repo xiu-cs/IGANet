@@ -72,7 +72,7 @@ Before starting, please complete the following preparation steps:
 
 - Download YOLOv3 and HRNet pretrained models from [here](https://drive.google.com/drive/folders/1_ENAMOsPM7FXmdYRbkwbFHgzQq_B_NQA?usp=sharing) and place them in the './demo/lib/checkpoint' directory. 
 
-- Copy your in-the-wild image (or video) to the './demo/image (or video)' directory.
+- Copy your in-the-wild image (or video) to the './demo/images (or videos)' directory.
 
 - Make sure to place the pre-trained model in the 'args.previous_dir' ('./pre_trained_model') directory.
 
