@@ -1,4 +1,4 @@
-# Interweaved Graph and Attention Network for 3D Human Pose Estimation 
+# IGANet:Interweaved Graph and Attention Network for 3D Human Pose Estimation 
 
 <p align="center"><img src="images/teaser.png" width="50%" alt="" /></p>
 
@@ -45,8 +45,8 @@ ${POSE_ROOT}/
 ```
 
 ## Test the pre-trained model
-The pre-trained model can be found [here](https://drive.google.com/drive/folders/1NL7LM9aVzA05aSYCH9rsNshXO4vwcjp1?usp=sharing). please download it and put it in the './pre_trained_model' dictory.
-
+The pre-trained model can be found [here](https://drive.google.com/drive/folders/1NL7LM9aVzA05aSYCH9rsNshXO4vwcjp1?usp=sharing). please download it and put it in the 'args.previous_dir' ('./pre_trained_model')
+directory.
 
 To Test the pre-trained model on Human3.6M:
 ```bash
@@ -63,11 +63,39 @@ For Human3.6M:
 python main.py --train --model model_IGANet --layers 3 --nepoch 20 --gpu 0
 ```
 
+## Demo 
+
+This visualization code is designed for single-frame based models, making it easy for you to perform 3D human pose estimation on a single image or video.
 
 
-## Demo
+Before starting, please complete the following preparation steps:
 
-The visualization code will be released soon.
+- Download YOLOv3 and HRNet pretrained models from [here](https://drive.google.com/drive/folders/1_ENAMOsPM7FXmdYRbkwbFHgzQq_B_NQA?usp=sharing) and place them in the './demo/lib/checkpoint' directory. 
+
+- Copy your in-the-wild image (or video) to the './demo/image (or video)' directory.
+
+- Make sure to place the pre-trained model in the 'args.previous_dir' ('./pre_trained_model') directory.
+
+
+Testing on in-the-wild image:
+
+```bash
+python demo/vis.py --type 'image' --path './demo/images/running.png' --gpu 0
+```
+<p align="center"><img src="images/running.png" width="80%" alt="" /></p>
+
+
+
+Testing on in-the-wild video:
+```bash
+python demo/vis.py --type 'video' --path './demo/videos/running3s.mp4' --gpu 0
+```
+
+
+Sample demo output:
+
+<p align="center"><img src="./images/running3s.gif" width="85%" alt="" /></p>
+
 
 ## Acknowledgement
 
