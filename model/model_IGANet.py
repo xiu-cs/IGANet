@@ -119,7 +119,7 @@ class GCN(nn.Module):
 
 
 class Block(nn.Module): # drop=0.1
-    def __init__(self, length, dim, tokens_dim, channels_dim, adj, drop=0.,
+    def __init__(self, length, dim, adj, drop=0.,
                  drop_path=0., act_layer=nn.GELU, norm_layer=nn.LayerNorm):
         # length =17, dim = args.channel = 512, tokens_dim = args.token_dim=256, channels_dim = args.d_hid = 1024
         super().__init__()
@@ -179,7 +179,7 @@ class Block(nn.Module): # drop=0.1
         return x
         
 class IGANet(nn.Module):
-    def __init__(self, depth, embed_dim, channels_dim, tokens_dim, adj, drop_rate=0.10, length=27):
+    def __init__(self, depth, embed_dim, adj, drop_rate=0.10, length=27):
         super().__init__()
         
         drop_path_rate = 0.2
@@ -190,7 +190,7 @@ class IGANet(nn.Module):
 
         self.blocks = nn.ModuleList([
             Block(
-                length, embed_dim, tokens_dim, channels_dim, adj, 
+                length, embed_dim, adj, 
                 drop=drop_rate, drop_path=dpr[i], norm_layer=norm_layer)
             for i in range(depth)])
 
@@ -213,7 +213,7 @@ class Model(nn.Module):
 
         self.encoder = encoder(2,args.channel//2,args.channel)
         #  
-        self.IGANet = IGANet(args.layers, args.channel, args.d_hid, args.token_dim, self.A, length=args.n_joints) # 256
+        self.IGANet = IGANet(args.layers, args.channel, self.A, length=args.n_joints) # 256
 
         self.fcn = nn.Linear(args.channel, 3)
 

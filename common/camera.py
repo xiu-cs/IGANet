@@ -11,6 +11,8 @@ def world_to_camera(X, R, t):
     Rt = wrap(qinverse, R) 
     return wrap(qrot, np.tile(Rt, (*X.shape[:-1], 1)), X - t) 
 
+def camera_to_world(X, R, t):
+    return wrap(qrot, np.tile(R, (*X.shape[:-1], 1)), X) + t
 
 def wrap(func, *args, unsqueeze=False):
 	args = list(args)
@@ -56,7 +58,3 @@ def qinverse(q, inplace=False):
         w = q[..., :1]
         xyz = q[..., 1:]
         return torch.cat((w, -xyz), dim=len(q.shape) - 1)
-
-
-
-        

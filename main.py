@@ -71,7 +71,6 @@ def step(split, args, actions, dataLoader, model, optimizer=None, epoch=None):
 
     elif split == 'test':
         mpjpe_p1, p2 = print_error(args.dataset, action_error_sum, args.train)
-        
         return mpjpe_p1, p2
 
 def get_parameter_number(net):
