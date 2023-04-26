@@ -16,18 +16,6 @@ Evaluation metric is Mean Per Joint Position Error (MPJPE) in mm​.
 | MGCN $\S$      |  49.4 mm  |
 |  IGANet     | **48.3** mm |
 
-
-## Dependencies
-
-- Cudatoolkit: 10.2
-- Python: 3.7.11
-- Pytorch: 1.10.0 
-
-Create conda environment:
-```bash
-conda env create -f environment.yml
-```
-
 ## Dataset setup
 
 ### Setup from original source 
@@ -43,6 +31,18 @@ ${POSE_ROOT}/
 |   |-- data_2d_h36m_gt.npz
 |   |-- data_2d_h36m_cpn_ft_h36m_dbb.npz
 ```
+
+## Dependencies
+
+- Cudatoolkit: 10.2
+- Python: 3.7.11
+- Pytorch: 1.10.0 
+
+Create conda environment:
+```bash
+conda env create -f environment.yml
+```
+
 
 ## Test the pre-trained model
 The pre-trained model can be found [here](https://drive.google.com/drive/folders/1NL7LM9aVzA05aSYCH9rsNshXO4vwcjp1?usp=sharing). please download it and put it in the 'args.previous_dir' ('./pre_trained_model')
@@ -82,7 +82,7 @@ Testing on in-the-wild image:
 ```bash
 python demo/vis.py --type 'image' --path './demo/images/running.png' --gpu 0
 ```
-<p align="center"><img src="images/running.png" width="80%" alt="" /></p>
+<!-- <p align="center"><img src="images/running.png" width="80%" alt="" /></p> -->
 
 
 
