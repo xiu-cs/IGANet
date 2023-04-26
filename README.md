@@ -92,8 +92,6 @@ python demo/vis.py --type 'video' --path './demo/videos/running3s.mp4' --gpu 0
 ```
 
 
-Sample demo output:
-
 <p align="center"><img src="./images/running3s.gif" width="85%" alt="" /></p>
 
 
