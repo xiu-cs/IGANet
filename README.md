@@ -2,7 +2,11 @@
 
 <p align="center"><img src="images/teaser.png" width="50%" alt="" /></p>
 
-> This paper has been accepted by IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2023.
+<!-- > This paper has been accepted by IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2023. -->
+
+> [**Interweaved Graph and Attention Network for 3D Human Pose Estimation**](http://arxiv.org/abs/2304.14045),            
+> Wang Ti, Hong Liu, Runwei Ding, Wenhao Li, Yingxuan You, Xia Li,        
+> *In IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2023*
 
 
 ## Results on Human3.6M
